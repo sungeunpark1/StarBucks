@@ -1,0 +1,956 @@
+body{
+    color:#333;
+    font-size:16px;
+    font-weight: 400;
+    line-height: 1.4em;
+    font-family: 'Nanum Gotic',sans-serif;
+    /* height: 2000px; */
+}
+img{
+    display:block;
+}
+a{text-decoration:none;}
+
+.btn{
+    width: 130px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #333;
+    color: #333;
+    font-size: 16px;
+    font-weight:700px;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: block;
+    transition: .4s;
+}
+.btn:hover{
+    background-color: #333;
+    color: #fff;
+}
+.btn.btn-reverse{
+    background-color: #333;
+    color: #fff;
+}
+.btn.btn-reverse:hover{
+    background-color: transparent;
+    /*부모 값을 가져다 주세요부모가 없으니까 초기상태*/
+    color: #333;
+}
+.btn.btn--green{
+    background-color: #00704a;
+    color: #fff;
+}
+.btn.btn--green:hover{
+    background-color: #fff;
+    color: #00704a;
+}
+.btn.btn--brown{
+    color:#592B18;
+    border-color: #592B18;
+}
+.btn.btn--brown:hover{
+    background-color: #592B18;
+    color:#fff;
+}
+.btn.btn--gold{
+    color:#D9AA8A;
+    border-color: #D9AA8A;
+}
+.btn.btn--gold:hover{
+    background-color:#D9AA8A;
+    color: #fff;
+}
+.btn.btn--white{
+    color:#fff;
+    border-color: #fff;
+}
+.btn.btn--white:hover{
+    background-color:#fff;
+    color: #333;
+}
+.btn.btn--pink{
+    color:#e54360;
+    border-color: #e54360;
+}
+.btn.btn--pink:hover{
+    background-color:#e54360;
+    color: #fff;
+}
+.back-to-position{
+    opacity: 0;
+    transition: 1s;
+}
+.back-to-position.to-right{
+    transform: translateX(-150px);
+}
+.back-to-position.to-left{
+    transform: translateX(150px);
+}
+.show .back-to-position{
+    opacity: 1;
+    transform: translateX(0);
+}
+.show .back-to-position.delay-1{
+    transition-delay: 0s;
+}
+.show .back-to-position.delay-2{
+    transition-delay: 0.3s;
+}
+.show .back-to-position.delay-3{
+    transition-delay: 0.5s;
+}
+.show .back-to-position.delay-4{
+    transition-delay: 0.7s;
+}
+.show .back-to-position.delay-5{
+    transition-delay: 0.9s;
+}
+
+
+/*HEADER*/
+.inner{
+    width:1100px;
+    margin: 0 auto;
+    position: relative;
+}
+#head_layout{
+    background-color: #f6f5f0;
+    position: fixed;
+    width: 100%;
+    top:0;
+    z-index: 10;
+    
+}
+#head_layout >.inner{
+    height: 120px;
+}
+#head_layout .logo{
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    height: 75px;
+    margin:auto;
+    /* background-color: yellow; */
+    /* display:none; */
+}
+
+#head_layout .inner .util_menu{
+    display:flex;
+    /* justify-content: right; */
+    position: absolute;
+    top:10px;
+    right: 0;
+    
+}
+
+#head_layout .inner .util_menu .menu{
+    display:flex;
+}
+#head_layout .inner .util_menu .menu li{
+    position: relative;
+}
+#head_layout .inner .util_menu .menu li::before{
+    position: absolute;
+    content:"";
+    width:1px;
+    height:12px;
+    background-color: #e5e5e5;
+    display:block;
+    top:0;
+    bottom:0;
+    margin:auto;
+}
+#head_layout .inner .util_menu .menu li:first-child::before{
+    display:none;
+}
+#head_layout .inner .util_menu .menu li a{
+    /* background-color: blueviolet; */
+    font-size: 12px;
+    padding: 11px 16px;
+    color:#656565;
+    display: block;
+    line-height: 1em;
+    
+}
+#head_layout .inner .util_menu .menu li a:hover{
+    color:#333;
+}
+#head_layout .inner .search{
+    /* background-color: aqua; */
+    height: 34px;
+    position: relative;
+}
+
+#head_layout .inner .search input{
+    width:34px;
+    height:34px;
+    padding: 4px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing:border-box;
+    outline:0;
+    color:#656565;
+    background-color: #fff;
+    transition: width .7s;
+}
+#head_layout .inner .search input:focus{
+    width:190px;
+    border-color: #007042;
+}
+
+#head_layout .inner .search span{
+    position: absolute;
+    top:0;
+    bottom:0;
+    right: 5px;
+    height: 24px;
+    margin:auto;
+    transition:opacity 0.4s;
+}
+#head_layout .inner .search.focused span{
+    opacity:0;
+}
+
+/* 상단 내용 main menu */
+#head_layout .inner .main_menu{
+    display:flex;
+    position: absolute;
+    right: 0;
+    bottom: 0;;
+}
+#head_layout .inner .main_menu .item{}
+#head_layout .inner .main_menu .item .item_name{
+    padding:20px;
+    font-size: 13px;
+}
+#head_layout .inner .main_menu .item:hover .item_name{
+    background-color: #2c2a29;
+    color: #fff;
+}
+#head_layout .inner .main_menu .item .item_contents{
+    position: fixed;
+    right: 0;
+    left: 0;
+    display:none;
+
+}
+#head_layout .inner .main_menu .item:hover .item_contents{
+    display: block;
+
+}
+#head_layout .inner .main_menu .item .item_contents .contents_menu{
+    background-color: #2c2a29;
+    height: auto;
+}
+
+#head_layout .inner .main_menu .item .item_contents .contents_menu > ul{
+    display:flex;
+    padding: 20px;
+}
+#head_layout .inner .main_menu .item .item_contents .contents_menu > ul > li{
+    width: 220px;
+}
+#head_layout .inner .main_menu .item .item_contents .contents_menu > ul > li h3{
+    padding: 3px 0 12px 0;
+    font-size: 14px;
+    color: #fff;
+}
+#head_layout .inner .main_menu .item .item_contents .contents_menu > ul > li ul{}
+#head_layout .inner .main_menu .item .item_contents .contents_menu > ul > li ul li{
+    padding: 5px;
+    font-size: 12px;
+    color: #999;
+    cursor:pointer;
+}
+#head_layout .inner .main_menu .item .item_contents .contents_menu > ul > li ul li:hover{
+    color: green;
+}
+#head_layout .inner .main_menu .item .item_contents .contents_text{
+    background-image: url("../image/main_menu_pattern.jpg");
+    background-repeat: repeat;
+    background-color: blueviolet;
+    padding:25px 0;
+}
+#head_layout .inner .main_menu .item .item_contents .contents_text .text_tit{
+    color: #999;
+    font-weight: 700;
+    font-size: 12px;
+}
+#head_layout .inner .main_menu .item .item_contents .contents_text .text_content{
+    color: #888;
+    font-size: 11px;
+    margin:4px 0 14px;
+}
+
+#head_layout .inner .badges{
+    position: fixed;
+    top:132px;
+    right: 12px;
+
+}
+#head_layout .inner .badges .badge{
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+/*중단내용 section*/
+/* section 1 */
+#body_layout .section1{
+    /* background-color: red; */
+    margin-top: 120px;
+    background-image: url('../image/visual_bg2.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    /*background-size: cover 이쁘게 100퍼 센트로 만드는 것*/
+}
+#body_layout .section1 .inner{
+    height:445px;
+    /* background-color: blue; */
+}
+#body_layout .section1 .inner .title{
+    position: absolute;
+    transform:translateY(-50%);
+    top:50%;
+    /* background-color: yellow; */
+    margin-left: 60px;
+
+}
+#body_layout .section1 .inner .title .btn{
+    margin: 0 auto;
+}
+#body_layout .section1 .inner .title .btn:hover{
+    color: #007042;
+}
+
+#body_layout .section1 .inner .title img{
+    width:300px;
+    margin-bottom: 50px;
+}
+#body_layout .section1 .inner > img{
+    position:absolute;
+    width: 13%;
+}
+#body_layout .section1 .inner .drink1{
+    top:14%;
+    left:37.5%;
+}
+#body_layout .section1 .inner .drink2{
+    top: 14%;
+    left: 48.5%;
+}
+#body_layout .section1 .inner .drink3{
+    top: 14%;
+    right: 29%;
+}
+#body_layout .section1 .inner .drink4{
+    top: 20%;
+    right: 19.5%;
+}
+#body_layout .section1 .fade-in{
+    opacity: 0;
+}
+
+/* section 2 */
+
+#body_layout .section2{}
+#body_layout .section2 .notice{
+    position: relative;
+}
+#body_layout .section2 .notice .bg_left{
+    width: 50%;
+    height: 100%;
+    background-color: #333;
+    position: absolute;
+    left:0;
+    z-index: 0;
+}
+#body_layout .section2 .notice .bg_right{
+    width: 50%;
+    height: 100%;
+    /* background-color: red; */
+    position: absolute;
+    right: 0;
+    z-index: 0;
+}
+#body_layout .section2 .notice .inner{
+    height: 62px;
+     /* border: 2px solid green;이너 값 확인해 볼라고 주는거 */
+    display: flex;
+}
+#body_layout .section2 .notice .inner .inner_left{
+    background-color: #333;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+#body_layout .section2 .notice .inner .inner_right{
+    background-color: #f6f5f0;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;
+
+}
+#body_layout .section2 .notice .inner .inner_left span.inner_tit{
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    margin-right: 20px;
+}
+#body_layout .section2 .notice .inner .inner_left .swiper{
+    /* background-color: cornflowerblue; */
+    flex-grow: 1;
+    height: 62px;
+}
+#body_layout .section2 .notice .inner .inner_left .swiper .swiper-wrapper{
+    width: 510px;
+}
+#body_layout .section2 .notice .inner .inner_left .swiper .swiper-wrapper .swiper-slide{
+    height: 62px;
+    display:flex;
+    align-items:center ;
+    /* align-items:center, justify-content: 는 플렉스를 써야 사용할 수 있다*/
+}
+#body_layout .section2 .notice .inner .inner_left .swiper .swiper-wrapper .swiper-slide a{
+    color: #fff;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    /* 위에 세 개 지문 길이가 길어지면 점점점으로 표시해주는거 */
+    
+}
+
+#body_layout .section2 .notice .inner .inner_left> a{
+    width: 62px;
+    height: 62px;
+    display: flex; 
+    justify-content: center; /* flex의 수직정렬*/
+    align-items: center;    /* flex의 수평정렬*/
+    color: #fff;
+    font-size: 30px;
+}
+/* section2 오른쪽  */
+#body_layout .section2 .notice .inner .inner_right span.inner_tit{
+    font-size: 17px;
+    font-weight: 700;
+}
+#body_layout .section2 .notice .inner .inner_right span.material-symbols-outlined{
+    width: 62px;
+    height: 62px;
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#body_layout .section2 .notice .inner .inner_right .toggle-promotion{
+    transform: rotate(0deg);
+    transition: transform 0.7s;
+}
+#body_layout .section2 .notice .inner .inner_right .toggle-promotion.open{
+    transform: rotate(180deg);
+}
+#body_layout .section2 .promotion{
+    height: 0;
+    overflow: hidden;
+    background: #f6f5f0;
+    position: relative;
+    transition: height 0.7s;
+}
+#body_layout .section2 .promotion.open{
+    height: 693px;
+}
+#body_layout .section2 .promotion .swiper{
+    width: calc(819px * 3 + 20px);
+    /* 띄어쓰기 잘 줘야함 계산해주는 내용임*/
+    height: 553px;
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    top: 40px;
+
+}
+#body_layout .section2 .promotion .swiper .swiper-slide{
+    opacity: 0.2;
+}
+#body_layout .section2 .promotion .swiper .swiper-slide.swiper-slide-active{
+    opacity: 1;
+}
+#body_layout .section2 .promotion .swiper .btn{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+#body_layout .section2 .promotion .swiper .swiper-pagination{
+    position: absolute;
+    bottom : 40px;
+    left: 0;
+    right: 0;
+}
+
+#body_layout .section2 .promotion .swiper-pagination .swiper-pagination-bullet{
+    background-image: url(../image/promotion_slide_pager.png);
+    width: 12px;
+    height: 12px;
+    margin-right: 6px;
+    outline: none;
+
+}
+#body_layout .section2 .promotion .swiper-pagination .swiper-pagination-bullet:last-child{
+    margin-right: 0;
+}
+#body_layout .section2 .promotion .swiper-pagination .swiper-pagination-bullet-active{
+    background: transparent;
+    background-image: url(../image/promotion_slide_pager_on.png);
+}
+#body_layout .section2 .promotion .swiper-button-prev,
+#body_layout .section2 .promotion .swiper-button-next{
+    width: 42px;
+    height: 42px;
+    border: 1px solid #333;
+    border-radius: 100%;
+    position: absolute;
+    top:300px;
+    z-index: 1;
+    cursor: pointer;
+    outline:none;
+    color: #333;
+    /* 아이콘은 폰트속성으로 들어간다 */
+    transition: background 0.5s ;
+}
+/* ,로 여러 개를 동시에 줄 수도 있댜 */
+#body_layout .section2 .promotion .swiper-button-prev{
+    left:50%;
+    margin-left: -480px;
+    /* 왼 쪽으로 이동한다 밀려들어간다*/
+    
+
+}
+#body_layout .section2 .promotion .swiper-button-next{
+    right: 50%;
+    margin-right: -480px;
+}
+#body_layout .section2 .promotion .swiper-button-prev::after,
+#body_layout .section2 .promotion .swiper-button-next::after{
+    content:'';
+}
+#body_layout .section2 .promotion .swiper-button-prev:hover,
+#body_layout .section2 .promotion .swiper-button-next:hover{
+    background-color: #333;
+    color: #fff;
+}
+/* section3 */
+/* reward */
+#body_layout .section3{
+    background-color: #1e3932;
+}
+#body_layout .section3 .inner{
+    padding: 50px 0;
+    display:flex;
+    color: #fff;
+}
+#body_layout .section3 .inner img{
+    width: 176px;
+    height: 152px;
+    margin-right: 50px;
+}
+#body_layout .section3 .inner .inner_right{
+    flex-grow: 1;
+}
+#body_layout .section3 .inner .inner_right .text_top{
+    border-bottom: 1px solid #4b615b;
+    padding-bottom: 20px;
+}
+
+#body_layout .section3 .inner .inner_right .em{
+    font-weight: 700;
+    display: inline !important;
+}
+#body_layout .section3 .inner .inner_right .text_top p{
+    font-size: 20px;
+}
+#body_layout .section3 .inner .inner_right .text_top p:first-child{
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+#body_layout .section3 .inner .inner_right .text_top p >span ,
+#body_layout .section3 .inner .inner_right .text_bot p >span{
+    display: block;
+    line-height: 1.3em;
+}
+#body_layout .section3 .inner .inner_right .text_bot{
+    padding-top: 20px;
+}
+#body_layout .section3 .inner .inner_right .text_bot p{
+    font-size: 14px;
+}
+#body_layout .section3 .inner .inner_right .text_top,
+#body_layout .section3 .inner .inner_right .text_bot{
+    position: relative;
+}
+#body_layout .section3 .inner .inner_right .text_top .btn_box,
+#body_layout .section3 .inner .inner_right .text_bot .btn_box{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+#body_layout .section3 .inner .inner_right .text_top .btn_box{
+    display: flex;
+    bottom: 20px;
+
+}
+#body_layout .section3 .inner .inner_right .text_top .btn_box a{
+    width: 95px;
+    margin-right: 15px;
+}
+#body_layout .section3 .inner .inner_right .text_top .btn_box a:last-child{
+    margin: 0;
+}
+#body_layout .section3 .inner .inner_right .text_bot .btn_box a{
+    width: 205px;
+}
+/* section4 */
+#body_layout .section4{
+    background-image: url(../image/season_product_bg.jpg);
+}
+#body_layout .section4 .inner{
+    height: 400px;
+}
+#body_layout .section4 .inner img{}
+#body_layout .section4 .inner .text_group{
+    position: absolute;
+    top: 110px;
+    right: 100px;
+    line-height: 2em;
+}
+#body_layout .section4 .inner .text_group .text_tit > span{
+    display: block;
+    letter-spacing: -2px;
+}
+#body_layout .section4 .inner .text_group .text_tit .text_tit_top{
+    font-size: 17px;
+    color: #3b3b3b;
+}
+#body_layout .section4 .inner .text_group .text_tit .text_tit_bot{
+    font-size: 25px;
+    color: #383838;
+    font-weight: 700;
+}
+#body_layout .section4 .inner .text_group .text_content{
+    color: #8b8b8b;
+    letter-spacing: -2px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5em;
+    margin-bottom: 20px;
+}
+#body_layout .section5{
+    background-image: url(../image/reserve_bg.jpg);
+}
+#body_layout .section5 .inner{
+    height: 400px;
+    display: flex;
+    align-items: center;
+}
+#body_layout .section5 .inner .reserve_logo{
+    margin-right: 50px;
+}
+#body_layout .section6{
+    background-image: url(../image/favorite_bg.jpg);
+    background-attachment: fixed;/*움직일 때마다 이미지 다르게 보이고 싶을 때*/
+    background-repeat: no-repeat;
+    background-size: cover;/*영역 꽉 채우겠다*/
+    background-position: center;/*백그라운드 이미지 위치 이동*/
+}
+#body_layout .section6 .inner{
+    padding: 110px 0;
+}
+#body_layout .section6 .inner .text_group{
+    display: flex;
+    width: 362px;
+    flex-wrap:wrap;
+    justify-content: flex-end;
+    /* background-color: #00704a; */
+}
+#body_layout .section6 .inner .text_group .title,
+#body_layout .section6 .inner .text_group .description{
+    margin-bottom: 40px;
+}
+
+#body_layout .section7{
+    background-image: url(../image/reserve_store_bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+#body_layout .section7 .inner{
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#body_layout .section7 .inner .modal{
+    width: 334px;
+    height: 334px;
+    perspective: 600px;/*숫자 크면 클 수록 먼것처럼보인데 원근법 ??*/
+}
+#body_layout .section7 .inner .modal .front,
+#body_layout .section7 .inner .modal .back{
+    width: 334px;
+    height: 334px;
+    backface-visibility: hidden;/*돌아가도 뒤에가 크니까 뒷면만 보이는 느낌 개쩌냉*/
+    transition: transform 1s;
+    position: relative;
+}
+
+#body_layout .section7 .inner .modal .front{
+    position: absolute;
+    transform: rotateY(0deg);/*3차원적으로 도는거*/
+}
+#body_layout .section7 .inner .modal:hover .front{
+    transform: rotateY(180deg);
+}
+#body_layout .section7 .inner .modal .back{
+    transform: rotateY(180deg);
+}
+#body_layout .section7 .inner .modal:hover .back{
+    transform: rotateY(0deg);
+}
+#body_layout .section7 .inner .modal .back .btn{
+    position: absolute;
+    top: 240px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+#body_layout .section8{
+    background-image: url(../image/find_store_bg.jpg);
+}
+#body_layout .section8 .inner{
+    height: 400px;
+}
+#body_layout .section8 .inner .texture1{
+    position: absolute;
+    top: 0;
+    left: 400px;
+}
+#body_layout .section8 .inner .texture2{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+#body_layout .section8 .inner .picture{
+    border-radius: 100%;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+#body_layout .section8 .inner .picture1{
+    position: absolute;
+    top: -60px;
+    left: 0;
+}
+#body_layout .section8 .inner .picture2{
+    position: absolute;
+    top: 150px;
+    left: 250px;
+}
+#body_layout .section8 .inner .text_group{
+    position:absolute;
+    top: 120px;
+    left: 550px;
+}
+#body_layout .section8 .inner .text_group .title{
+    margin-bottom: 20px;
+}
+#body_layout .section8 .inner .text_group .description{
+    margin-bottom: 20px;
+}
+/*award*/
+#body_layout .section9{
+    background-color: #272727;
+}
+#body_layout .section9 .inner{
+    padding: 40px 0;
+}
+#body_layout .section9 .inner .swiper{
+    width: 100%;
+    height: 40px;
+}
+#body_layout .section9 .inner .swiper-button-prev::after,
+#body_layout .section9 .inner .swiper-button-next::after{
+    content:'';
+}
+#body_layout .section9 .inner .swiper-button-prev,
+#body_layout .section9 .inner .swiper-button-next{
+    width: 42px;
+    height: 42px;
+    border-radius: 100%;
+    border: 2px solid #fff;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    opacity: 0.3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s;
+}
+#body_layout .section9 .inner .swiper-button-prev:hover,
+#body_layout .section9 .inner .swiper-button-next:hover{
+    background-color: #fff;
+    color: #333;
+
+}
+#body_layout .section9 .inner .swiper-button-prev{
+    left: -100px;
+    /* 엡솔루트가 있댜 선택자 잡아봐 스와이퍼 불러왔잖아 그때 css가 붙어서 자동으로 들어갔댜(오픈소스) */
+}
+#body_layout .section9 .inner .swiper-button-next{
+    right: -100px;
+}
+#foot_layout{
+    background-color: #272727;
+    border-top: 1px solid #333;
+}
+#foot_layout .inner{
+    padding: 40px 0px 60px;
+}
+#foot_layout .inner .menu{
+    display: flex;
+    justify-content: center;
+
+}
+#foot_layout .inner .menu li{
+    position: relative;
+}
+#foot_layout .inner .menu li a{
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 15px 10px;
+    display: block;
+}
+#foot_layout .inner .menu li:first-child a{
+    color: #669900;
+}
+#foot_layout .inner .menu li::after{
+    content:'';
+    width: 3px;
+    height: 3px;
+    border-radius: 100%;
+    background-color: #555;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: 0; /*블락이고 패딩과 플렉스가 8분단으로 나눠져서 배치시켰기 때문에 왼쪽 아래에 있기 때문에 위치 이동시켜준다 */
+    right: -1.5px;
+}
+#foot_layout .inner .menu li:last-child::after{
+    content: unset;/*안보이게 해주는거*/
+}
+#foot_layout .inner .btn_group{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+#foot_layout .inner .btn_group .btn{
+    font-size: 12px;
+    margin-right: 10px;
+}
+#foot_layout .inner .btn_group .btn:last-child{
+    margin-right: 0;
+}
+/*치우쳐보이니까 빼줘야함*/
+#foot_layout .inner .info{
+    text-align: center;
+    margin-top: 30px;
+
+}
+#foot_layout .inner .info span{
+    font-size: 12px;
+    color: #999;
+    margin-right: 20px;
+}
+#foot_layout .inner .info span:last-child{
+    margin-right: 0;
+}
+#foot_layout .inner .copyright{
+    color: #999;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 15px;
+}
+#foot_layout .inner .logo{
+    margin: 30px auto 0px;
+}
+/*TOP*/
+#to_top{
+    width: 42px;
+    height: 42px;
+    border: 2px solid #fff;
+    color: #fff;
+    cursor: pointer;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 30px;
+    bottom: 30px;
+    z-index: 9;
+    border-radius: 10px;
+}
+#to_top span{}
+
+/*유튜브*/
+.youtube{
+    height: 700px;
+    position: relative;
+    overflow: hidden;
+}
+
+.youtube .youtube_area{
+    width: 1970px;
+    /* background-color: orange; */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;/*내가 넣은거*/
+    transform: translate(-50%,-50%);
+}
+/* before값을 준 이유 태그로 줘도 된댜  */
+/* .youtube .youtube_area::before{
+    content:'';
+    display: block;
+    width: 100%;
+    height: 0px;
+    padding-top: 56.25%;
+}내가 지운거 */
+.youtube .youtube_area #player{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /* left: 0;
+    top: 0; 내가 지운거*/
+}
+.youtube .youtube_cover{
+    background-image: url('../image/video_cover_pattern.png');
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* 또는
+    width:100%
+    height:100% */
+}
